@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Análise de Distribuição de Marmitas</title>
+    <link rel="stylesheet" href="estetica.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+</head>
+<body>
+<div class="app-shell">
+
+    <!-- Barra superior -->
+    <div class="topbar">
+        <div class="logo">
+            <img src="https://img.icons8.com/fluency/48/charity.png" alt="Doação" class="logo-icon">
+            Análise de <span class="accent">Distribuição</span> de Marmitas
+        </div>
+        <div class="subtitle">Solidariedade e impacto social em dados</div>
+    </div>
+
+    <!-- Estrutura principal -->
+    <div class="main-grid">
+
+        <!-- Coluna Esquerda -->
+        <div class="left-col">
+            <div class="panel">
+                <h2 class="panel-title">Carregar Arquivo</h2>
+                <div id="areaUpload" class="upload-area" tabindex="0">
+                    <p>Arraste seu CSV ou clique para selecionar</p>
+                    <small class="hint">Formato: alimento,quantidade,voluntarios,marmitas,idade,data</small>
+                </div>
+                <input type="file" id="arquivoCSV" accept=".csv" hidden>
+                <div class="upload-actions">
+                    <button id="botaoLimpar" class="btn btn-outline" style="display:none">Limpar</button>
+                    <div class="file-meta">
+                        <span id="nomeArquivo">Nenhum arquivo</span><br>
+                        <span id="qtdLinhas"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel stats-quick">
+                <h2 class="panel-title">Resumo Rápido</h2>
+                <div class="stat-grid">
+                    <div class="stat"><div class="label">Tipos de alimentos</div><div id="totalAlimentos" class="num">-</div></div>
+                    <div class="stat"><div class="label">Quantidade total</div><div id="totalQuantidade" class="num">-</div></div>
+                    <div class="stat"><div class="label">Marmitas</div><div id="totalMarmitas" class="num">-</div></div>
+                    <div class="stat"><div class="label">Voluntários (ocorrências)</div><div id="totalVoluntarios" class="num">-</div></div>
+                    <div class="stat" id="linhaVoluntariosUnicos" style="display:none"><div class="label">Voluntários distintos</div><div id="voluntariosUnicos" class="num">-</div></div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h2 class="panel-title">Pré-visualização</h2>
+                <div class="table-wrap">
+                    <table id="tabelaPreview" class="table">
+                        <thead>
+                            <tr>
+                                <th>Alimento</th>
+                                <th>Quantidade</th>
+                                <th>Voluntários</th>
+                                <th>Marmitas</th>
+                                <th>Idade</th>
+                                <th>Data</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Coluna Direita -->
+        <div class="right-col">
+
+            <div class="panel header-cards">
+                <h2 class="panel-title">Top Alimentos</h2>
+                <div id="cartoesTopo" class="card-row"></div>
+            </div>
+
+            <div class="panel">
+                <h2 class="panel-title">Marmitas por Data</h2>
+                <div class="chart-block">
+                    <canvas id="graficoLinha"></canvas>
+                </div>
+            </div>
+
+            <div class="charts-grid">
+                <div class="panel">
+                    <h2 class="panel-title">Distribuição de Idades</h2>
+                    <p class="text-muted">Idades dos moradores em situação de rua que receberam marmitas</p>
+                    <div class="chart-block">
+                        <canvas id="graficoIdades"></canvas>
+                    </div>
+                </div>
+                <div class="panel">
+                    <h2 class="panel-title">Top Alimentos (Detalhado)</h2>
+                    <div class="chart-block">
+                        <canvas id="graficoAlimentos"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <div class="footer">
+        <div>© 2025 Análise de Distribuição de Marmitas</div>
+        <div>Feito com ♥</div>
+    </div>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>

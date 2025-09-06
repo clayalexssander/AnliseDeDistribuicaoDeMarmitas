@@ -1,0 +1,238 @@
+:root{
+    --bg-1: #f6f7f8;
+    --panel-bg: rgba(255,255,255,0.70);
+    --glass-border: rgba(34,34,34,0.06);
+    --text: #17202a;
+    --muted: #6b6f76;
+    --accent: #f39c12; /* laranja suave */
+    --card-radius: 14px;
+    --shadow: 0 6px 18px rgba(23,32,42,0.06);
+}
+
+/* Reset minimal */
+*{box-sizing:border-box}
+body{
+    margin:0;
+    font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: linear-gradient(180deg,#eceff1 0%, #f7f8f9 100%);
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+}
+
+/* App shell */
+.app-shell{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+/* Topbar */
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 28px;
+    background:transparent;
+    border-bottom:1px solid rgba(0,0,0,0.04);
+}
+.logo{font-weight:700; font-size:20px; color:var(--text)}
+.logo .accent{color:var(--accent); margin-left:4px}
+.subtitle{font-size:12px; color:var(--muted)}
+
+/* Main grid */
+.main-grid{
+    display:grid;
+    grid-template-columns: 320px 1fr;
+    gap:24px;
+    padding:28px;
+    align-items:start;
+}
+.panel {
+    background: rgba(255, 255, 255, 0.25); /* vidro translúcido */
+    border-radius: var(--card-radius);
+    padding: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(12px) saturate(180%); /* efeito vidro */
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+}
+
+/* ---- Títulos de seções ---- */
+.panel h2, .panel h3, .panel-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 12px 0;
+    letter-spacing: -0.3px;
+}
+
+.panel h2 {
+    font-size: 20px;
+    color: #111827;
+}
+
+.panel h2::after, .panel-title::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: var(--accent);
+    margin-top: 6px;
+    border-radius: 2px;
+}
+
+.left-col .panel{margin-bottom:18px}
+
+.upload-area {
+    padding: 22px;
+    border-radius: 12px;
+    border: 2px dashed #ff7f00;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6));
+    box-shadow: 0 0 12px rgba(255, 140, 0, 0.5);
+    animation: neonGlow 1.8s infinite alternate;
+}
+.upload-area {
+    padding: 22px;
+    border-radius: 12px;
+    border: 2px dashed #ff7f00;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6));
+    box-shadow: 0 0 12px rgba(255, 140, 0, 0.5);
+    animation: neonGlow 1.8s infinite alternate;
+    max-width: 100%;
+    overflow: hidden;             
+    word-wrap: break-word;       /* quebra linhas longas */
+}
+
+.upload-area.loaded {
+    animation: none;             /* desliga brilho depois do upload */
+    box-shadow: none;
+}
+
+.upload-area p {
+    margin: 0;
+    font-weight: 700;
+    color: #ff8000;
+    font-size: 15px;
+    text-shadow: 0 0 6px rgba(255, 140, 0, 0.7);
+}
+
+.upload-area .hint {
+    display: block;
+    margin-top: 8px;
+    font-size: 13px;
+    color: #ffb347;
+    text-shadow: 0 0 4px rgba(255, 120, 0, 0.6);
+}
+
+.upload-area.dragover {
+    background: rgba(255, 128, 0, 0.1);
+    border-color: #ffae42;
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.9);
+}
+
+/* Botão limpar em vermelho chamativo */
+#botaoLimpar {
+    background-color: #ff4d4d;
+    border: none;
+    color: white;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+#botaoLimpar:hover {
+    background-color: #e60000;
+}
+
+/* Animação de brilho neon */
+@keyframes neonGlow {
+    from {
+        box-shadow: 0 0 10px rgba(255, 140, 0, 0.7), 0 0 20px rgba(255, 120, 0, 0.5);
+    }
+    to {
+        box-shadow: 0 0 20px rgba(255, 160, 0, 1), 0 0 40px rgba(255, 120, 0, 0.9);
+    }
+}
+
+.upload-actions{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:12px;
+}
+.btn{padding:8px 12px; border-radius:8px; cursor:pointer}
+.btn-outline{background:transparent; border:1px solid rgba(0,0,0,0.06)}
+.file-meta{font-size:13px; text-align:right}
+.text-muted{color:var(--muted)}
+
+ 
+.stats-quick .stat-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+}
+.stat{background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.55)); padding:12px; border-radius:10px; border:1px solid rgba(0,0,0,0.04)}
+.stat .label{font-size:12px; color:var(--muted)}
+.stat .num{font-weight:700; font-size:18px; margin-top:6px}
+
+ 
+.table-wrap{max-height:220px; overflow:auto}
+.table{width:100%; border-collapse:collapse; font-size:13px}
+.table thead th{font-weight:700; text-align:left; padding:8px 6px; color:var(--muted)}
+.table tbody td{padding:8px 6px; border-top:1px solid rgba(0,0,0,0.03)}
+
+ 
+.right-col{display:flex; flex-direction:column; gap:16px}
+ 
+.header-cards .card-row{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+.card-item{
+    padding:12px;
+    border-radius:10px;
+    background:linear-gradient(180deg, rgba(255,255,255,0.65), rgba(255,255,255,0.60));
+    border:1px solid rgba(0,0,0,0.04);
+    display:flex;
+    flex-direction:column;
+}
+.card-item .big{font-size:20px; font-weight:800}
+.card-item .small{font-size:12px; color:var(--muted)}
+
+/* Charts */
+.charts-grid{display:grid; grid-template-columns:1fr 340px; gap:18px}
+.chart-block{padding:6px}
+canvas{background:transparent; max-width:100%; height:260px !important}
+
+/* detalhes */
+.details-area p.muted{color:var(--muted); font-size:13px}
+
+/* Footer */
+.footer{padding:14px 28px; border-top:1px solid rgba(0,0,0,0.04); display:flex; justify-content:space-between; align-items:center; font-size:13px; color:var(--muted)}
+
+/* Responsividade */
+@media (max-width:1100px){
+    .main-grid{grid-template-columns:1fr; padding:18px}
+    .header-cards .card-row{grid-template-columns:repeat(2,1fr)}
+    .charts-grid{grid-template-columns:1fr}
+    canvas{height:200px !important}
+}
+/* ---- Estilo para logo com ícone ---- */
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--text);
+    gap: 10px;
+}
+
+.logo-icon {
+    width: 34px;
+    height: 34px;
+}
