@@ -12,7 +12,7 @@ Transforma planilhas CSV em **estatísticas rápidas, tabelas e gráficos intera
 
 ## 🙌 Sobre o Projeto  
 
-Este sistema foi desenvolvido por **Alexander**, **Daniel Marcos da Silva Mello** e **Matheus Costa Ribeiro** com o objetivo de **apoiar os projetos sociais da nossa igreja**.  
+Este sistema foi desenvolvido por **Clayver Alexssander**, **Daniel Marcos da Silva Mello** e **Matheus Costa Ribeiro** com o objetivo de **apoiar os projetos sociais da nossa igreja**.  
 Queremos mostrar como a **tecnologia pode ser uma ferramenta poderosa de solidariedade**, ajudando a organizar dados, dar transparência e fortalecer o impacto social. ❤️  
 
 ---
